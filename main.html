@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    body {
+      background-color: #444;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    iframe {
+      border: 5px solid #333;
+      transform: scale(.7);
+      min-width: 390px;
+      width: 390px; 
+      min-height: 844px;
+      height: 844px;
+    }
+
+    .overflow {
+      background-color: #333;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      width: 280px;
+      height: 598px;
+    }
+  </style>
+  <div class='overflow'>
+    <iframe src="index.html" frameborder="0" name="iphone"></iframe>
+  </div>
+  <script>
+    let win = window.frames.iphone
+  
+    setTimeout(() => {
+      fetch('config.json')
+        .then(d => d.json())
+        .then(j => win.postMessage({ meta: j, isIphone: true }, '*'))
+    }, 15000)
+  </script>
+</body>
+</html>
