@@ -1,1 +1,1 @@
-alert(1234)
+window.allow = true
