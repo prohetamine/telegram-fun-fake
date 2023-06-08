@@ -1,1 +1,1 @@
-window.allow = true
+window.allow = false
